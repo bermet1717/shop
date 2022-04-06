@@ -8,5 +8,6 @@ def send_confirmation_email(code, email):
     send_mail(
         'Hello',
         full_link,
+        'e.bermet.e@gmail.com',
         [email]
     )
