@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import config as config
 import dj_database_url
+import django_filters.rest_framework
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -154,8 +156,10 @@ REST_FRAMEWORK = {
     # 'PAGE_SIZE': 2
     # 'DEFAULT_PERMISSION_CLASSES':
     #     'rest_framework.permissions.IsAuthenticated'  #AllowAny
-}
+    # 'DEFAULT_FILTER_BACKENDS':[
+    #     'django_filters.rest_framework.DjangoFilterBackend'
 
+}
 AUTH_USER_MODEL = 'account.CustomUser'
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')
